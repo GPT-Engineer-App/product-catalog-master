@@ -1,14 +1,47 @@
-// Update this page (the content is just a fallback if you fail and example)
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const products = [
+  {
+    id: 1,
+    name: "Product 1",
+    description: "This is a description for product 1.",
+    price: "$10.00",
+  },
+  {
+    id: 2,
+    name: "Product 2",
+    description: "This is a description for product 2.",
+    price: "$20.00",
+  },
+  {
+    id: 3,
+    name: "Product 3",
+    description: "This is a description for product 3.",
+    price: "$30.00",
+  },
+];
 
 const Index = () => {
   return (
-    <div className="h-screen w-screen flex items-center justify-center">
-      {/* Update with components here - default to put new layout sections as separate components in the components folder, and import them here */}
-      <div>
-        <h1 className="text-3xl text-center">Your Blank Canvas</h1>
-        <p className="text-center">
-          Chat with the agent to start making edits.
-        </p>
+    <div className="h-screen w-screen flex flex-col items-center justify-center space-y-4 p-4">
+      <h1 className="text-3xl text-center mb-4">Products Catalog</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {products.map((product) => (
+          <Card key={product.id} className="w-full max-w-sm">
+            <CardHeader>
+              <CardTitle>{product.name}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>{product.description}</p>
+              <p className="mt-2 font-bold">{product.price}</p>
+              <Button variant="outline" className="mt-4 w-full">
+                Add to Cart
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );
