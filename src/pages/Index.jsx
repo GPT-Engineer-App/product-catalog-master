@@ -8,18 +8,21 @@ const products = [
     name: "Product 1",
     description: "This is a description for product 1.",
     price: "$10.00",
+    image: "/images/product1.jpg",
   },
   {
     id: 2,
     name: "Product 2",
     description: "This is a description for product 2.",
     price: "$20.00",
+    image: "/images/product2.jpg",
   },
   {
     id: 3,
     name: "Product 3",
     description: "This is a description for product 3.",
     price: "$30.00",
+    image: "/images/product3.jpg",
   },
 ];
 
@@ -33,6 +36,7 @@ const Index = () => {
             <CardHeader>
               <CardTitle>{product.name}</CardTitle>
             </CardHeader>
+            <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
             <CardContent>
               <p>{product.description}</p>
               <p className="mt-2 font-bold">{product.price}</p>
